@@ -45,6 +45,8 @@ function update() {
 
 // Takes in a html element and randomly turns words in it to the scratch font
 function scratchifyText(element) {
+    //add a space before every new line so words get split properly
+    element.innerHTML = element.innerHTML.replace(/\n/g, " \n");
     var words = element.innerHTML.split(" ");
     var newWords = [];
     for (var i = 0; i < words.length; i++) {
