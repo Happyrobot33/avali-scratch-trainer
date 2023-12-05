@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Avali Scratch Training</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div>
+            <p1>Word Replacement Percentage: </p1>
+            <p2 id="percentageValue">5</p2>
+            <p3>%</p3>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="5" class="slider" id="percentage">
+            </div>
+            <p1>Font Size</p1>
+            <p2 id="fontSizeValue">20</p2>
+            <p3>px</p3>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="20" class="slider" id="fontSize">
+            </div>
+            <!-- Selector for custom input or random text -->
+            <div class="customOrRandom" id="customOrRandom">
+                <input type="radio" id="custom" name="customOrRandom" value="custom" checked>
+                <label for="custom">Custom Text</label>
+                <input type="radio" id="random" name="customOrRandom" value="random">
+                <label for="random">Random Text</label>
+            </div>
+            <!-- Random Text Button -->
+            <div class="randomText">
+                <button id="randomTextButton">Generate Random Text</button>
+            </div>
+            <!-- Custom Text Input -->
+            <div class="customText">
+                <textarea id="customText" placeholder="Enter your text here"></textarea>
+            </div>
+        </div>
+        <p1 id="outputText">Sample Text</p1>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
