@@ -1,7 +1,11 @@
+import { sentence, article } from "https://esm.sh/@ndaidong/txtgen";
+
 // radio button
 var radioButtons = document.getElementById("customOrRandom");
 // Custom text input
 var customText = document.getElementById("customText");
+// Random text button
+var randomText = document.getElementById("randomTextButton");
 //continually update the text
 var outputText = document.getElementById("outputText");
 
@@ -30,6 +34,28 @@ fontSizeSlider.oninput = function() {
 customText.addEventListener("input", update);
 percentageSlider.addEventListener("input", update);
 radioButtons.addEventListener("change", update);
+randomText.addEventListener("click", () => {
+    randomSentence = article();
+    update();
+});
+
+var randomSentence = article();
+
+updateInputs();
+
+function updateInputs() {
+    var radioButtons = document.querySelector('input[name="customOrRandom"]:checked');
+    if (radioButtons.value == "custom") {
+        //hide the random text button and show the custom text input
+        randomText.style.display = "none";
+        customText.style.display = "block";
+    }
+    else if (radioButtons.value == "random") {
+        //hide the custom text input and show the random text button
+        customText.style.display = "none";
+        randomText.style.display = "block";
+    }
+}
 
 function update() {
     var radioButtons = document.querySelector('input[name="customOrRandom"]:checked');
@@ -37,8 +63,9 @@ function update() {
         outputText.innerHTML = customText.value;
     } else if (radioButtons.value == "random") {
         //outputText.innerHTML = generateRandomText();
-        outputText.innerHTML = "Should be random text here. Coming soon!";
+        outputText.innerHTML = randomSentence;
     }
+    updateInputs();
     scratchifyText(outputText);
     outputText.style.fontSize = fontSizeSlider.value + "px";
 }
